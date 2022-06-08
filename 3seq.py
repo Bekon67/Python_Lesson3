@@ -1,5 +1,6 @@
 #  Последовательности помещаются во вложенный список. Сортировка не делалась
-ext_list_element = []
+
+list_element = []
 for k in range(2):
     in_list_element = []
     count_element = ''
@@ -12,9 +13,10 @@ for k in range(2):
             get_element = input(f'Введите {i}-й элемент из одной цифры: ')
             len_element = len(get_element)
         in_list_element.append(int(get_element))
-    #  print(f'Вывод: {in_list_element}')
-    in_list_element = set(in_list_element)
-    #  print(f'Вывод: {in_list_element}')
-    ext_list_element.append(in_list_element)
+    list_element.append(in_list_element)
+for volume in set(list_element[0]):
+    if volume in list_element[1]:
+        while volume in list_element[0]:
+            list_element[0].remove(volume)
 print('Результат:', end=' ')
-print(*(ext_list_element[0] - ext_list_element[1]), sep=',')
+print(*list_element[0], sep=',')
